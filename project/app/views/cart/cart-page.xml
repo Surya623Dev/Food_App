@@ -1,0 +1,18 @@
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo">
+    <ActionBar title="Cart" />
+    <GridLayout rows="*, auto">
+        <ListView items="{{ cartItems }}" class="list-group">
+            <ListView.itemTemplate>
+                <GridLayout columns="*, auto, auto" class="list-group-item p-4">
+                    <Label text="{{ menuItem.name }}" />
+                    <Label text="{{ 'x' + quantity }}" col="1" />
+                    <Label text="{{ '$' + (menuItem.price * quantity) }}" col="2" />
+                </GridLayout>
+            </ListView.itemTemplate>
+        </ListView>
+        <StackLayout row="1" class="p-4">
+            <Label text="{{ 'Total: $' + total }}" class="text-xl font-bold" />
+            <Button text="Place Order" tap="{{ onPlaceOrder }}" class="btn btn-primary" />
+        </StackLayout>
+    </GridLayout>
+</Page>
